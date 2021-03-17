@@ -1,0 +1,245 @@
+<section class="slider sliderAdd">
+        <ul class="slides slidesAdd">
+            <li>
+              <img src="https://source.unsplash.com/random/1600x800?beaches"> <!-- random image -->
+              <div class="caption center-align">
+                <h2 class="black-text h2Add">Create your Hotel Property</h2>
+              </div>
+            </li>
+        </ul>
+       </section>
+
+ 
+     {{!-- ************************************************************************************************************************** --}}
+    {{!-- Add Hotel Section --}}
+    <div style="height: 50px;"></div>
+
+    <section>
+      
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col s12 m6">
+            <h4 class="center">Enter Property Details</h4>
+            <form name="Form1" id="Form1" action="/hotel" method="POST" onsubmit="return validateForm()">
+             
+              
+            <div class="input-field">
+              <input type="text" name="nameHotel" id="nameHotel" placeholder="Hotel Name" class="validate" required>
+              <label for="nameHotel">Hotel Name</label>
+            </div>
+            
+            <div class="input-field">
+            <input type= "email" name="emailHotel" id="emailHotel" placeholder=" Hotel Email" class="validate">
+            <label for="emailHotel">Hotel Email</label>
+            </div>
+
+            <div class="input-field">
+            <input type= "tel" name="phoneHotel" id="phoneHotel" placeholder="Hotel Phone" class="validate">
+            <label for="phoneHotel">Hotel Phone</label>
+            </div>
+
+            <div class="input-field">
+            <input type="text" name="websiteHotel" id="websiteHotel" placeholder="Hotel Website" class="validate">
+            <label for="websiteHotel">Hotel Website</label>
+            </div>
+
+            <div class="input-field">
+            <select name="typeHotel" id="typeHotel" required>
+              <option value="" disabled>Property Type</option>
+                <option value="Hotel">Hotel</option>
+                <option value="Residence">Residence</option>
+                <option value="Aparthotel">Aparthotel</option>
+                <option value="Motel">Motel</option>
+                <option value="Apartament">Apartament</option>
+                <option value="Resort">Resort</option>
+            </select>
+            <label for="typeHotel">Property Type</label>
+            </div>
+            
+            <div class="input-field">
+              <select id="selectbox" name="stars" id="stars">
+                <option value="" disabled selected>Stars</option>
+                <option value="1"> 1 </option>
+                <option value="2"> 2 </option>
+                <option value="3"> 3 </option>
+                <option value="4"> 4 </option>
+                <option value="5"> 5 </option>
+              </select>
+              <label for="selectbox">Property Stars</label>
+              </div>
+
+              <div class="input-field">
+                <input type="text" name="facilitiesHotel" id="facilitiesHotel" placeholder="Hotel Facilities" value="['wifi', 'breakfast', 'dinner']">
+                <label for="facilitiesHotel">Hotel Facilities</label>
+              </div>
+
+              <div class="input-field">
+                <input type="text" name="images" id="images" placeholder="Hotel Images">
+                <label for="images">Hotel Images</label>
+              </div>
+
+             <div class="input-field">
+              <input type="text" name="control" id="control" hidden>
+              {{!-- <label </label> --}}
+             </div>   
+
+            </form>
+          </div>
+
+
+        <div class="col s12 m6">
+          <h4 class="center">Enter Property Details</h4>
+          <form id="location-form" name="Form2">
+
+            <div class="input-field">
+                <input style="width: 400px" type="text" id="autocomplete" placeholder="Enter a place" class="form-control form-control-lg" required>
+            </div>
+            
+            <div class="input-field center">
+            <button type="submit" class="btn btn-primary">Locate Property</button>
+            </div>
+
+            <div class="input-field" id="complete-address"> </div>
+            <div class="input-field" id="address-details"> </div>
+            <div class="input-field" id="latDetail"> </div>
+            <div class="input-field" id="lngDetail"> </div>  
+
+        </form>
+
+        </div>
+        
+        </div>
+      </div> <!-- End Form Container -->
+
+        <div class="container">
+          <div class="row">
+            <div class="col s12 center">
+
+          <button class="btn waves-effect waves-light " type="submit" name="action" style="width: 400px;" form="Form1">Submit
+    <i class="material-icons right">send</i>
+          </button>
+
+            </div>
+          </div>
+       </div> <!-- End Button Submit Container -->
+
+      {{!--Footer Space Divider  --}}
+     <div style="height: 100px;"></div>
+     
+
+     {{!-- ********************* JAVASCRIPTING ********************* --}}
+
+
+ <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+ 
+
+<script>
+        //autocomplete
+        let autocomplete;
+       function initAutocomplete () {
+           autocomplete = new google.maps.places.Autocomplete(
+               document.getElementById('autocomplete'),
+            );
+       }
+
+
+        //geocode();
+        // Get Location Form
+        const locationForm = document.getElementById('location-form');
+
+        // Listen for submission
+        locationForm.addEventListener('submit', geocode)
+
+        function geocode (e) {
+            // prevent action submit
+            e.preventDefault()
+            let location = document.getElementById('autocomplete').value;
+            axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
+                params : {
+                    address : location,
+                    key : 'AIzaSyDipJNPDQK7dTd401jO_z1ROUiitrKHDX4'
+                 }
+            })
+            .then( function (response){
+
+                // log full response
+                console.log(response);
+                //  formatted address
+                let formattedAddress = (response.data.results[0].formatted_address)
+                let formattedAddressOutput = `
+                <input style="width: 400px"; type="text" name="formattedAddress" id="formattedAddress" value="${formattedAddress}" form="Form1" readonly>`;
+
+                // Address Component
+                let addressComponent = (response.data.results[0].address_components)
+                let addressComponentOutput = `<ul class="list-group">`;
+                for(let i = 0; i < addressComponent.length; i++){
+                    addressComponentOutput += 
+                    `
+                    <input style="width: 400px"; type="text" name="${addressComponent[i].types[0]}" id="${addressComponent[i].types[0]}" value="${addressComponent[i].long_name}" form="Form1" readonly>
+                    <br>
+                   `;
+
+
+                }
+               
+
+                //Lat-long
+                let lat = (response.data.results[0].geometry.location.lat)
+                let latOutput = 
+                `<input style="width: 400px"; type="text" name="lat" id="lat" value="${lat}" readonly form="Form1" required>`;
+                
+
+                let lng = (response.data.results[0].geometry.location.lng)
+                let lngOutput = 
+                 `<input style="width: 400px"; type="text" name="lng" id="lng" value="${lng}" readonly form="Form1" required>`;
+
+                // Output to app
+                document.getElementById("complete-address").innerHTML = formattedAddressOutput
+                document.getElementById("address-details").innerHTML = addressComponentOutput
+                document.getElementById("latDetail").innerHTML = latOutput
+                document.getElementById("lngDetail").innerHTML = lngOutput
+                let elem = document.getElementById("control")
+                elem.value = 10;
+                
+            })
+            .catch(function (error){
+                console.log(error)
+            })
+        }
+</script>
+
+<script>
+    function validateForm() {
+      let elem = document.getElementById("control")
+      if ( elem.value!= 10 ) {
+         alert ("You have to set the Hotel address before save the Property");
+        }  
+    }
+
+</script>
+
+<script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDipJNPDQK7dTd401jO_z1ROUiitrKHDX4&libraries=places&callback=initAutocomplete">
+</script>
+
+
+{{!-- Materialize Scripts --}}
+<script>
+      document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.slider');
+    var instances = M.Slider.init(elems, {
+        indicators : false,
+        height : 500,
+        transition: 500,
+        interval: 4000
+    });
+  });
+
+      document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems, {});
+  });
+
+</script>
+

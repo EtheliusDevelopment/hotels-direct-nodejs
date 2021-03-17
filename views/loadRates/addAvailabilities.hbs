@@ -1,0 +1,49 @@
+<h1>{{title}}</h1>
+<p>Welcome to {{title}}</p>
+                        <div class="container">
+                       <h4>id di questa tariffa è {{rateid}}</h4>    
+                       <h4>Il nome di questa tariffa è {{rate.nameRate}} </h4>
+                       <h4>il nome di questo hotel è {{hotel.nameHotel}}</h4>
+                       <h4>id di questa camera è {{roomId}}</h4>
+                        </div>
+                       <br><br><br>
+ {{!-- dati a disposizione hotel,rateid,room,rate --}}
+
+
+                 <div class="container">
+                     <div class="row">
+                         <div class="col s12 m4">
+                             {{!-- hotel.rateslist --}}
+
+                       
+
+                <form action="/calendar/{{roomId}}/{{rateid}}" method="POST" class="col s12">
+                <input type="date" id="date" name="date">
+                <label for="date">Rate Available from</label>
+                <input type="date" id="date2" name="date2">
+                <label for="date2">Rate Available to</label>
+                <input type="number" name="allotment" id="allotment">
+                <label for="allotment">Allotment per Night</label>
+                <input type="number" name="price" id="price">
+                <label for="price">Price per Night</label>
+            <div class="container">      
+              <div class="row">
+                <div class="col s12 m4 center">
+                    <input type="submit" value="Save" class='btn'>
+                </div>
+                </div>
+            </div>
+                </form>
+            </div>
+        </div>
+    </div>   
+    
+       
+                
+             
+      
+ 
+      
+
+
+    

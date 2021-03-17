@@ -1,0 +1,31 @@
+nav {
+  height: 80px !important;
+}
+
+.material-tooltip {
+  background-color: rgba(43, 185, 185, 0.795) !important;
+}
+
+.sliderAdd {
+  height: 300px !important;
+}
+
+.slidesAdd {
+  height: 300px !important;
+}
+
+.h2Add{
+  font-weight: bold !important;
+}
+
+.title-card-css {
+  font-weight: 500 !important;
+}
+
+.ttx {
+  border: 3px solid teal !important;
+}
+
+.pswitch{
+  color: #bfbfbf !important;
+}

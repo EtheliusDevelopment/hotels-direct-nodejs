@@ -1,0 +1,140 @@
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <h1>Vedo questo dato <span class="red-text">{{hotel.nameHotel}}</span></h1>
+            <h1>Vedo questo dato <span class="red-text">{{roomId}}</span></h1>
+
+    <form action="/rates/rooms/{{roomId}}/rateslist" method="POST" class="col s12">
+    
+       
+        
+    <div class="input-field">
+    <input type="text" name="rateName" id="rateName">
+    <label for="rateName">Insert the rate name</label>
+    </div>
+
+    <div class="input-field">
+    <div class="switch">
+        <p class="pswitch">Non Refundable Rate</p>
+        <label for="nonRefundable" >
+        No
+        <input type="checkbox" name="nonRefundable" id="nonRefundable" value="true">
+        <span class="lever"></span>
+        Yes
+        </label>
+    </div>
+    </div> 
+
+    <div class="input-field cxl">
+    <input type="number" name="cancpolicy" id="cancpolicy">
+    <label for="cancpolicy">Free Cancellation days before</label>
+    </div> 
+
+    <div class="input-field ">
+    <input type="number" name="release" id="release">
+    <label for="release">Release</label>
+    </div> 
+
+        <div class="input-field">
+        <div class="switch">
+        <p class="pswitch">Minimum Stay Rule</p>
+        <label for="minStay" >
+        No
+        <input type="checkbox" name="minStay" id="minStay" value="true">
+        <span class="lever"></span>
+        Yes
+        </label>
+         </div>
+        </div> 
+
+  
+    <div class="input-field">
+    <input type="number" name="minStayPeriod" id="minStayPeriod">
+    <label for="minStayPeriod">Min Stay for this rate</label>
+    </div>
+
+    <div class="input-field">
+    <div class="switch">
+    <p class="pswitch">Advance Booking</p>
+    <label for="advBooking" >
+     No
+    <input type="checkbox" name="advBooking" id="advBooking" value="true">
+    <span class="lever"></span>
+     Yes
+    </label>
+    </div>
+    </div> 
+
+    <div class="input-field">   
+    <input type="number" name="advBookingPeriod" id="advBookingPeriod">
+    <label for="advBookingPeriod">Insert the rate name</label>
+    </div>
+
+
+
+
+
+
+
+    <div class="row">
+
+    <input type="submit" value="create new rate" class="btn">
+
+    </div>
+
+        
+    
+    </form>
+       </div>
+</div>
+
+
+{{!-- ******************************************JAVASCRIPING************************************ --}}
+
+
+
+
+<script>
+function myFunction() {
+  var checkBox = document.getElementById("nonRefundable");
+  var element = document.getElementById("cxl");
+  if (checkBox.checked == true){
+    element.classList.add("mystyle");
+  }else {
+      console.log()
+  }}
+
+      nameRate : {
+  type : String,
+  required : true
+},
+refundable : {
+  type : Boolean,
+  default : true,
+  required : true
+},
+cancpolicy : {
+  type : Number,
+  default : 1,
+  required : true
+},
+minStay : {
+  type : Boolean,
+  default : false,
+  required : true
+},
+minStayPeriod :{
+  type : Number,
+  default : 0
+},
+advBooking : {
+  type : Boolean,
+  default: false,
+  required : true
+},
+advBookingPeriod : {
+  type: Number,
+  default : 0
+},
+  
+ </script>

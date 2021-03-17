@@ -1,0 +1,116 @@
+<h1>Property Details</h1>
+
+{{!-- Property Details Cards --}}
+<div class="container">
+    <div class="row">
+    <div class="col s12 m6">
+      <div class="card teal lighten-4">
+        <div class="card-content purple-text">
+          <span class="card-title center grey-text title-card-css">Property Details</span>
+          <h6>Property Name: <span class="red-text">{{hotel.nameHotel}}</span></h6>
+          <h6>Property Address: <span class="red-text">{{hotel.formattedaddress}}</span></h6>
+          <h6>Property Type: <span class="red-text">{{hotel.typeHotel}}</span></h6>
+          <h6>Property Rating: <span class="red-text">{{hotel.stars}} Stars</span></h6>
+          <h6>Property Facilities: <span class="red-text">{{hotel.facilitiesHotel}}</span></h6>
+          <h6>Property Website: <span class="red-text">{{hotel.websiteHotel}}</span></h6>
+          <h6>Property Phone: <span class="red-text">{{hotel.phoneHotel}}</span></h6>
+          <h6>Property Email: <span class="red-text"><a href="mailto:{{hotel.emailHotel}}">{{hotel.emailHotel}}</a></span></h6>
+          <h6>Property Id: <span class="red-text">{{hotel._id}}</span></h6>
+         </div>
+       </div>
+    </div> <!-- card sotto  questo div -->
+
+    <div class="col s12 m6">
+      <div class="card teal lighten-4">
+        <div class="card-content purple-text">
+          <span class="card-title center grey-text title-card-css">Property Geos</span>
+          <h6>Country: <span class="red-text">{{hotel.country}}</span></h6>
+          <h6>Region: <span class="red-text">{{hotel.region}}</span></h6>
+          <h6>Province: <span class="red-text">{{hotel.province}}</span></h6>
+          <h6>Municipality: <span class="red-text">{{hotel.municipality}}</span></h6>
+          <h6>Locality: <span class="red-text">{{hotel.locality}}</span></h6>
+          <h6>Street: <span class="red-text">{{hotel.street}}</span></h6>
+          <h6>Street Number: <span class="red-text">{{hotel.streetNumber}}</span></h6>
+          <h6>Latitude: <span class="red-text">{{hotel.lat}}</span></h6>
+          <h6>Longitude: <span class="red-text">{{hotel.lng}}</span></h6>
+         </div>
+       </div>
+    </div>
+   </div>
+</div>
+{{!-- END Property Details Cards --}}
+
+{{!-- Actions Section --}}
+
+<div class="container ttx">
+  <div class="row">
+    <div class="col s12 center">
+      <p class='red-text'>Spazio per le azioni</p>
+      <a href="/hotel/addrates/{{hotel._id}}" class="btn-floating btn-large waves-effect waves-light red tooltipped" data-position="bottom" data-tooltip="Add a new Rate"><i class="material-icons">grid_on</i></a>
+      <a href="/hotel/addrooms/{{hotel._id}}" class="btn-floating btn-large waves-effect waves-light pink accent-1 tooltipped" data-position="bottom" data-tooltip="Add a new Rate"><i class="material-icons">hotel</i></a>
+      </div>
+  </div>
+</div>
+
+{{!-- End Actions Section--}}
+
+{{!-- Rate Names Table --}}
+
+<h1 class="red">{{hotel.rooms}}</h1>
+
+<div class="container">
+    {{#if hotel.rooms}}
+     <table class="striped">
+        <thead>
+          <tr>
+              <th>Room Name</th>
+              <th>Max Adt</th>
+              <th>Max Chd</th>
+              <th>Created At</th>
+              <th>Rates</th>
+          </tr>
+        </thead>
+
+        <tbody>
+        {{#each hotel.rooms}}
+          <tr>
+            <td>{{nameRoom}}</td>
+            <td>{{maxAdt}}</td>    
+            <td>{{maxChd}}</td>    
+            <td>{{formatDate createdAt 'DD MMMM  YYYY, HH:mm:ss'}}</td>
+            <td><a href="/rooms/showrates/{{_id}}"><i class="material-icons">event_available</i></a></td>
+            <td><a href="/rooms/addrates/{{_id}}"><i class="material-icons">add</i></a></td>
+          </tr>
+          {{/each}}
+        </tbody>
+    </table>
+    {{else}}
+    
+    <div class="container">
+      <h4 class="purple-text center">You have not created any room</h4>
+    </div>
+
+    {{/if}}
+</div>
+    {{!-- END Rate Names Table --}}
+
+         {{!--Footer Space Divider  --}}
+     <div style="height: 100px;"></div>
+
+    
+
+
+
+
+
+{{!-- ********************* JAVASCRIPTING ********************* --}}
+
+
+ <script> 
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.tooltipped');
+    var instances = M.Tooltip.init(elems, {});
+  });
+
+
+    </script>

@@ -1,0 +1,502 @@
+  <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+          <label for="first_name">First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="last_name" type="text" class="validate">
+          <label for="last_name">Last Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input disabled value="I am not editable" id="disabled" type="text" class="validate">
+          <label for="disabled">Disabled</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="password" type="password" class="validate">
+          <label for="password">Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          This is an inline input field:
+          <div class="input-field inline">
+            <input id="email_inline" type="email" class="validate">
+            <label for="email_inline">Email</label>
+            <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+    <div class="row">
+        <div class="col s12 m3">
+    <input type="text" class="datepicker" placeholder="Date Picker">
+
+        </div>
+    </div>
+
+        <div class="container" style="height: 100px;">
+        <h1 class="red center">Add Hotel Section</h1>
+
+    {{!-- ************************************************************************************************************************** --}}
+    {{!-- Add Hotel Section --}}
+
+
+    <section>
+      
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col s12 m6">
+            <h4 class="center">Enter Property Details</h4>
+            <form name="Form1" id="Form1" action="/hotel" method="POST" onsubmit="return validateForm()">
+             
+              
+            <div class="input-field">
+              <input type="text" name="nameHotel" id="nameHotel" placeholder="Hotel Name" class="validate" required>
+            </div>
+            
+            <div class="input-field">
+            <input type= "email" name="emailHotel" id="emailHotel" placeholder=" Hotel Email" class="validate">
+
+            </div>
+            <div class="input-field">
+            <input type= "tel" name="phoneHotel" id="phoneHotel" placeholder="Hotel Phone" class="validate">
+
+            </div>
+
+            <div class="input-field">
+            <input type="text" name="websiteHotel" id="websiteHotel" placeholder="Hotel Website" class="validate">
+
+            </div>
+
+            <div class="input-field">
+            <select name="typeHotel" id="typeHotel" required>
+              <option value="" disabled selected>Property Type</option>
+                <option value="Hotel">Hotel</option>
+                <option value="Residence">Residence</option>
+                <option value="Aparthotel">Aparthotel</option>
+                <option value="Motel">Motel</option>
+                <option value="Apartament">Apartament</option>
+                <option value="Resort">Resort</option>
+            </select>
+            <label for="typeHotel">Property Type</label>
+            </div>
+            
+            <div class="input-field">
+              <select id="selectbox" name="stars" id="stars">
+                <option value="" disabled selected>Stars</option>
+                <option value="1"> 1 </option>
+                <option value="2"> 2 </option>
+                <option value="3"> 3 </option>
+                <option value="4"> 4 </option>
+                <option value="5"> 5 </option>
+              </select>
+              <label for="selectbox">Property Stars</label>
+              </div>
+
+              <div class="input-field">
+                <input type="text" name="facilitiesHotel" id="facilitiesHotel" placeholder="Hotel Facilities">
+
+              </div>
+
+              <div class="input-field">
+                <input type="text" name="images" id="images" placeholder="Hotel Images">
+
+              </div>
+
+             <div class="input-field">
+              <input type="text" name="control" id="control" hidden>
+
+             </div>   
+
+            </form>
+          </div>
+
+
+        <div class="col s12 m6">
+          <h4 class="center">Enter Property Details</h4>
+          <form id="location-form" name="Form2">
+
+            <div class="input-field">
+            <input style="width: 400px" type="text" id="autocomplete" placeholder="Enter a place" class="form-control form-control-lg" required>
+
+            </div>
+            <div class="input-field center">
+            <button type="submit" class="btn btn-primary center">Locate Property</button>
+
+            </div>
+
+            <div class="input-field" id="complete-address"> </div>
+            <div class="input-field" id="address-details"> </div>
+            <div class="input-field" id="latDetail"> </div>
+            <div class="input-field" id="lngDetail"> </div>  
+
+        </form>
+
+        </div>
+        
+        </div>
+      </div> <!-- End Form Container -->
+
+        <div class="container">
+          <div class="row">
+            <div class="col s12 center">
+
+          <button class="btn waves-effect waves-light " type="submit" name="action" style="width: 400px;">Submit
+    <i class="material-icons right">send</i>
+          </button>
+
+            </div>
+          </div>
+       </div> <!-- End Button Submit Container -->
+
+{{!-- ************************************************************************************************************************** --}}
+    {{!-- Add Hotel Section --}}
+
+      
+     <div class="container" style="height: 100px;">
+        <h1 class="red center">Add Hotel Section</h1>
+      </div>
+
+ </section>
+
+
+        <h2 id="text-center">Enter the Hotel address: </h2>
+        
+        <form id="location-form">
+            <input style="width: 400px" type="text" id="autocomplete" placeholder="Enter a place" class="form-control form-control-lg" required>
+            <br> <br><br>
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </form>
+      <h2 id="text-center">Enter the Hotel details: </h2>
+        
+        <form name="Form1" action="/hotel" method="POST" id="general-form" onsubmit="return validateForm()">
+
+            <input type="text" name="nameHotel" id="nameHotel" placeholder="Hotel Name" class="validate" required>
+            <input type= "email" name="emailHotel" id="emailHotel" placeholder=" Hotel Email">
+            <input type= "tel" name="phoneHotel" id="phoneHotel" placeholder="Hotel Phone">
+            <input type="text" name="websiteHotel" id="websiteHotel" placeholder="Hotel Website">
+            <select name="typeHotel" id="typeHotel">
+                <option value="Hotel" selected>Hotel</option>
+                <option value="Residence">Residence</option>
+                <option value="Aparthotel">Aparthotel</option>
+                <option value="Motel">Motel</option>
+                <option value="Apartament">Apartament</option>
+                <option value="Resort">Resort</option>
+            </select>
+            <input type="number" name="stars" id="stars" min="1" max="5" placeholder="Hotel Stars">
+            <input type="text" name="facilitiesHotel" id="facilitiesHotel" placeholder="Hotel Facilities">
+            <input type="text" name="images" id="images" placeholder="Hotel Images">
+            <input type="text" name="control" id="control" hidden>
+            
+            <br> <br> <hr>
+            {{!-- <div id="complete-address"> </div>
+            <div id="address-details"> </div>
+            <div id="latDetail"> </div>
+            <div id="lngDetail"> </div>   --}}    
+            <br><br><br>
+        
+        </form>
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m4"></div>
+                <div class="col s12 m4">
+
+            <input type="submit" value="create new Hotel" class="btn waves-effect waves-light " form="general-form">
+                </div> 
+                <div class="col s12 m4"></div>   
+            </div>
+
+        </div>
+
+
+
+     {{!-- <input type="submit" name="button1" value="buttonVal1" form="Form1" />
+<input type="submit" name="button2" value="buttonVal2" form="Form2" /> --}}
+
+        <br><br>
+
+
+{{!-- *********************************************************************************************************************** --}}
+<div class="container" style="height: 100px;">
+        <h1 class="red center">Dashboard Table</h1>
+
+    {{!-- ************************************************************************************************************************** --}}
+    {{!-- Dashboard Table Section --}}
+
+      <table class="striped">
+        <thead>
+          <tr>
+              <th>Hotel Name</th>
+              <th>Creation Date</th>
+              <th>Country</th>
+              <th>City</th>
+              <th>Email</th>
+              <th>User Creator</th>
+              <th>Rates</th>
+              <th class="center">View Reservations</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Hotel Cristallo</td>
+            <td>09/05/2020</td>
+            <td>Italy</td>
+            <td>Naples</td>
+            <td>info@hotelcristallo.com</td>
+            <td>Marco Rossi</td>
+            <td class="center"><i class="material-icons">grid_on</i></td>
+            <td class="center"><i class="material-icons ">date_range</i></td>
+          </tr>
+
+           <tr>
+            <td>Hotel Cristallo</td>
+            <td>09/05/2020</td>
+            <td>Italy</td>
+            <td>Naples</td>
+            <td>info@hotelcristallo.com</td>
+            <td>Marco Rossi</td>
+            <td class="center"><i class="material-icons">grid_on</i></td>
+            <td class="center"><i class="material-icons ">date_range</i></td>
+          </tr>
+
+           <tr>
+            <td>Hotel Cristallo</td>
+            <td>09/05/2020</td>
+            <td>Italy</td>
+            <td>Naples</td>
+            <td>info@hotelcristallo.com</td>
+            <td>Marco Rossi</td>
+            <td class="center"><i class="material-icons">grid_on</i></td>
+            <td class="center"><i class="material-icons ">date_range</i></td>
+          </tr>
+
+           <tr>
+            <td>Hotel Cristallo</td>
+            <td>09/05/2020</td>
+            <td>Italy</td>
+            <td>Naples</td>
+            <td>info@hotelcristallo.com</td>
+            <td>Marco Rossi</td>
+            <td class="center"><i class="material-icons">grid_on</i></td>
+            <td class="center"><i class="material-icons ">date_range</i></td>
+          </tr>
+
+           <tr>
+            <td>Hotel Cristallo</td>
+            <td>09/05/2020</td>
+            <td>Italy</td>
+            <td>Naples</td>
+            <td>info@hotelcristallo.com</td>
+            <td>Marco Rossi</td>
+            <td class="center"><i class="material-icons">grid_on</i></td>
+            <td class="center"><i class="material-icons ">date_range</i></td>
+          </tr>
+         </tbody>
+      </table>
+        {{!-- End Dashboard Table Section --}}
+
+                  {{!--   <td>
+
+                        <a href="/stories/edit/{{_id}}" class="btn btn-float">
+                          {{!--   <i class="fas fa-edit"></i>
+                        </a> 
+
+                        
+                        <form action="/stories/{{_id}}" method="POST" id="delete-form">
+                            <input type="hidden" name="_method" value="DELETE">
+                                <button type="submit" class="btn red">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                        
+                        </form>
+
+                    </td> --}}
+
+                    {{#if stories}}
+    <table class="striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each stories}}
+                <tr>
+                    <td><a href="/stories/{{_id}}">{{title}}</a></td>
+                    {{!-- STEP 68 aggiungo la funzione formatDate a createdAt => STEP 69 creo file in stories index.hbs --}}
+                    <td> {{formatDate createdAt 'DD MMMM  YYYY, HH:mm:ss'}}</td>                     
+                    <td><span class="dash-status">{{status}}</span></td>
+                    {{!-- STEP 89  creo bottoni per editare e cancellare da listing dashboard => STEP 90 creo bottone delete con metodo override--}}
+                    <td>
+
+                        <a href="/stories/edit/{{_id}}" class="btn btn-float">
+                            <i class="fas fa-edit"></i>
+                        </a>
+
+                        {{!-- STEP 90  creo bottone Delete con metodo override => aggiungo CSS per mettere i bottoni uno al lato dell'altro--}}
+                        <form action="/stories/{{_id}}" method="POST" id="delete-form">
+                            <input type="hidden" name="_method" value="DELETE">
+                                <button type="submit" class="btn red">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                        
+                        </form>
+
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+{{else}}
+    
+    <p>You have not created any Story</p>
+
+{{/if}}
+
+
+
+
+
+ <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+ 
+
+<script>
+        //autocomplete
+        let autocomplete;
+       function initAutocomplete () {
+           autocomplete = new google.maps.places.Autocomplete(
+               document.getElementById('autocomplete'),
+            );
+       }
+
+
+        //geocode();
+        // Get Location Form
+        const locationForm = document.getElementById('location-form');
+
+        // Listen for submission
+        locationForm.addEventListener('submit', geocode)
+
+        function geocode (e) {
+            // prevent action submit
+            e.preventDefault()
+            let location = document.getElementById('autocomplete').value;
+            axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
+                params : {
+                    address : location,
+                    key : 'AIzaSyDipJNPDQK7dTd401jO_z1ROUiitrKHDX4'
+                 }
+            })
+            .then( function (response){
+
+                // log full response
+                console.log(response);
+                //  formatted address
+                let formattedAddress = (response.data.results[0].formatted_address)
+                let formattedAddressOutput = `
+                <input type="text" name="formattedAddress" id="formattedAddress" value="${formattedAddress}" form="Form1" readonly>`;
+
+                // Address Component
+                let addressComponent = (response.data.results[0].address_components)
+                let addressComponentOutput = `<ul class="list-group">`;
+                for(let i = 0; i < addressComponent.length; i++){
+                    addressComponentOutput += 
+                    `
+                    <input type="text" name="${addressComponent[i].types[0]}" id="${addressComponent[i].types[0]}" value="${addressComponent[i].long_name}" form="Form1" readonly>
+                    <br>
+                   `;
+
+
+                }
+               
+
+                //Lat-long
+                let lat = (response.data.results[0].geometry.location.lat)
+                let latOutput = 
+                `<input type="text" name="lat" id="lat" value="${lat}" readonly form="Form1" required>`;
+                
+
+                let lng = (response.data.results[0].geometry.location.lng)
+                let lngOutput = 
+                 `<input type="text" name="lng" id="lng" value="${lng}" readonly form="Form1" required>`;
+
+                // Output to app
+                document.getElementById("complete-address").innerHTML = formattedAddressOutput
+                document.getElementById("address-details").innerHTML = addressComponentOutput
+                document.getElementById("latDetail").innerHTML = latOutput
+                document.getElementById("lngDetail").innerHTML = lngOutput
+                let elem = document.getElementById("control")
+                elem.value = 10;
+                
+            })
+            .catch(function (error){
+                console.log(error)
+            })
+        }
+</script>
+
+<script>
+    function validateForm() {
+      let elem = document.getElementById("control")
+      if ( elem.value!= 10 ) {
+         alert ("You have to set the Hotel address before save the Property");
+        }  
+    }
+
+</script>
+
+<script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDipJNPDQK7dTd401jO_z1ROUiitrKHDX4&libraries=places&callback=initAutocomplete">
+</script>
+
+
+{{!-- Materialize Scripts --}}
+<script>
+      document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.slider');
+    var instances = M.Slider.init(elems, {
+        indicators : false,
+        height : 500,
+        transition: 500,
+        interval: 4000
+    });
+  });
+
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems, {});
+  });
+</script>
+
+
+
+
+
+
+    {{!-- Materialize Triggers --}}
+
+    <script>
+          document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.datepicker');
+    var instances = M.Datepicker.init(elems, {});
+  });
+    </script>

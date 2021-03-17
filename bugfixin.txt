@@ -1,0 +1,15 @@
+Favicon in crhome
+Load images in hotel and rooms
+hotel facilities "Chips"
+es: res.render('error/500') creare pagine errore
+RateNameSchema aggiungere refundable cancellation policy minimum stay advance booking **Fatto
+Room / Occupancy
+inserire scrollspy nel menu
+inserire backToTop nel footer
+creare modale loader per attesa queries
+modificare res.redirect di saveHotel
+formattare date con handlebars helper
+
+Helpers per handlebars :    https://github.com/helpers/handlebars-helpers#path
+
+TIPS: npx kill-port 8080

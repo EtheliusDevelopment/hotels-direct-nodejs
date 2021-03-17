@@ -1,0 +1,52 @@
+<h1>qui carichiamo le camere dell-hotel</h1>
+
+<p> hotel {{hotel}}  </p>
+<p> hotel.nameHotel {{hotel.nameHotel}}  </p>
+
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+          <form name="FormRoom" id="FormRoom" action="/rooms/hotel/{{hotel._id}}/rooms" method="POST">
+                           
+                <div class="input-field">
+                <input type="text" name="nameRoom" id="nameRoom" placeholder="Room Name" class="validate" required>
+                <label for="nameHotel">Room Name</label>
+
+                <div class="input-field">
+                <input type="number" name="maxAdt" id="maxAdt" placeholder="Max Adults per Rooom" class="validate" required>
+                <label for="maxAdt">Max Adults per Rooom</label>
+
+                <div class="input-field">
+                <input type="number" name="maxChd" id="maxChd" placeholder="Max Children per Rooom" class="validate" required>
+                <label for="maxChd">Max Children per Rooom</label>
+
+                <div class="input-field">
+                <input type="text" name="description" id="description" placeholder="Room Description" class="validate" required>
+                <label for="description">Room Description</label>
+                </div>
+
+                <div class="input-field">
+                <input type="text" name="images" id="images" placeholder="Hotel Images">
+                <label for="images">Room Images</label>
+                </div>
+
+                    <div class="container">
+                    <div class="row">
+                    <div class="col s12 center">
+
+                    <button class="btn waves-effect waves-light " type="submit" name="action" style="width: 400px;" form="FormRoom">Submit
+                    <i class="material-icons right">send</i>
+                    </button>
+
+                    </div>
+                    </div>
+                    </div>
+          </form>  
+        </div>
+    </div>
+</div>
+
+
+
+
+

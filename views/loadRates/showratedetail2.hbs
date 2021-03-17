@@ -1,0 +1,37 @@
+       <h1>rateid{{rateid}}</h1>
+       <h1>roomid{{roomId}}</h1>
+       <h1>hotel{{hotel}}</h1>
+       {{!-- <h1><span class="red-text">calendarTable:  </span> {{calendarTable}}</h1> --}}
+
+
+<div class="container">
+  <table class="striped">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Allotment</th>
+        <th>Price per night</th>
+      </tr>
+    </thead>
+    <tbody>
+{{#each calendarTable }}
+      <tr>
+        <td>{{#each this}}{{ night}} {{/each }}</td>
+        <td>{{#each this}}{{allotment}} {{/each }}</td>
+        <td>{{#each this}}{{price}} {{/each }}</td>
+      </tr>
+{{/each}}
+    </tbody>
+  </table>
+
+</div>
+
+    
+<p>Data: {{#each this}}{{ date}} {{/each }}</p>
+<p>Prezzo: {{#each this}}{{price}} {{/each }}</p>
+<p>Cupo: {{#each this}}{{allotment}} {{/each }}</p>
+
+
+       
+
+       

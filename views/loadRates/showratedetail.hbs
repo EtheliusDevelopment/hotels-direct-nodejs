@@ -1,0 +1,95 @@
+<h1>CIAO A TUTTI</h1>
+<h3>Questi sono i dati che vediamo qui</h3>
+
+<form action="" method="POST">
+<input type="text" id="roomId" name="roomId" value="{{roomId}}" hidden>
+
+</form>
+
+<p> roomId {{roomId}}  </p>
+ <br>
+<p> nameHotel <span class="red-text">{{property.nameHotel}} </span> </p>
+<p>Address  <span class="red-text">{{property.formattedaddress}}  </span></p>
+<p>property  <span class="red-text">{{property}}  </span></p>
+
+
+<div class="container">
+    <div class="col s12 center">
+        {{#if property.rooms }}
+        {{#each property.rooms}}
+        {{#ifCond _id "==" @root.roomId }}
+        <h2 class="teal-text">{{nameRoom}}</h2>
+        {{/ifCond}}
+        {{/each}}
+        {{else}}
+<div class="container">
+    <div class="col s12 center">
+      <h4 class="purple-text center">You have not created any room</h4>
+    </div>
+</div>
+
+        {{/if}}
+    </div>
+</div>
+
+<br><br><br>
+ 
+     
+     
+     
+     
+     
+     
+
+
+<div class="container">
+    <div class="col s12 center">
+        {{#if property.rooms }}
+        {{#each property.rooms}}
+        {{#ifCond _id "==" @root.roomId }}
+       
+        <table class="striped">
+            <thead>
+                <tr>
+                    <th>Rate Name</th>
+                    <th>Non Refundable</th>
+                    <th>Canc Policy</th>
+                    <th>Release</th>
+                    <th>Min Stay</th>
+                    <th>Min Stay Period</th>
+                    <th>Adv Booking</th>
+                    <th>Adv Booking Period</th>
+                    <th>Add Availabilities</th>
+                    <th>Show Availabilities</th>
+                </tr>
+            </thead>
+            <tbody>
+        {{#each rateslist}}
+                <tr>
+                    <td>{{nameRate}}</td>
+                    <td>{{nonRefundable}}</td>
+                    <td>{{cancpolicy}}</td>
+                    <td>{{release}}</td>
+                    <td>{{minStay}}</td>
+                    <td>{{minStayPeriod}}</td>
+                    <td>{{advBooking}}</td>
+                    <td>{{advBookingPeriod}}</td>
+                    <td><a href="/rates/addavailabilities/{{@root.roomId}}/{{_id}}"><i class="material-icons">event_available</i></a></td>
+                    <td><a href="/rates/showavailabilities/{{_id}}"><i class="material-icons">event_available</i></a></td>
+                </tr>
+        {{/each}}       
+            </tbody>            router.get('/addavailabilities/:roomId/:id', calendarCtrl.addAvailForm)
+            </table>
+        
+        {{/ifCond}}
+        {{/each}}
+        {{else}}
+<div class="container">
+    <div class="col s12 center">
+      <h4 class="purple-text center">You have not created any room</h4>
+    </div>
+</div>
+
+        {{/if}}
+    </div>
+</div>
